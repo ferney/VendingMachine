@@ -2,7 +2,8 @@ class Program
 {
     static void Main()
     {
-        VendingMachine vendingMachine = new VendingMachine();      
+        VendingMachine vendingMachine = new VendingMachine();
+        
 
 
         // Agrega productos y monedas iniciales a la máquina expendedora
@@ -10,12 +11,15 @@ class Program
         bool isRunning = true;
         while (isRunning)
         {
+
+            Console.WriteLine("\n\n-----------------\n");
+            Console.WriteLine("MENU PRINCIPAL-----\n");
             Console.WriteLine("1. Comprar producto");
             Console.WriteLine("2. Acceder como usuario surtidor");
             Console.WriteLine("3. Salir");
-            Console.Write("Selecciona una opción: ");
+            Console.Write("Selecciona una opción:\n ");
             string choice = Console.ReadLine();
-
+            Console.WriteLine("\n\n");
             switch (choice)
             {
                 case "1":                   
