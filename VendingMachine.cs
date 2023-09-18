@@ -139,47 +139,65 @@ public class VendingMachine
 
     }
 
-    private bool CheckChangeAvailability(int changeAmount)
+    private void UpdateCoinsStock(int paymentAmount, int changeAmount)
+{
+    // Actualiza el stock de monedas con las monedas ingresadas por el usuario
+    // Incrementa el stock de monedas correspondiente al pago
+    // y decrementa el stock de monedas correspondiente al cambio dado.
+
+    // Actualiza el stock de monedas de 500
+    while (paymentAmount >= 500)
     {
-        int remainingChange = changeAmount;
-
-        // Verifica si hay suficientes monedas de 500 para el cambio
-        while (remainingChange >= 500 && coins500.Count() > 0)
-        {
-            remainingChange -= 500;
-            coins500.Pop(); // Elimina una moneda de 500 del stock
-        }
-
-        // Verifica si hay suficientes monedas de 200 para el cambio
-        while (remainingChange >= 200 && coins200.Count() > 0)
-        {
-            remainingChange -= 200;
-            coins200.Pop(); // Elimina una moneda de 200 del stock
-        }
-
-        // Verifica si hay suficientes monedas de 100 para el cambio
-        while (remainingChange >= 100 && coins100.Count() > 0)
-        {
-            remainingChange -= 100;
-            coins100.Pop(); // Elimina una moneda de 100 del stock
-        }
-
-        // Verifica si hay suficientes monedas de 50 para el cambio
-        while (remainingChange >= 50 && coins50.Count() > 0)
-        {
-            remainingChange -= 50;
-            coins50.Pop(); // Elimina una moneda de 50 del stock
-        }
-
-        // Si remainingChange llega a cero, entonces hay suficiente cambio
-        if (remainingChange == 0)
-        {
-            return true;
-        }
-
-        // Si no hay suficientes monedas para dar cambio, retorna false
-        return false;
+        coins500.Push(500); // Agrega una moneda de 500 al stock
+        paymentAmount -= 500;
     }
+
+    // Actualiza el stock de monedas de 200
+    while (paymentAmount >= 200)
+    {
+        coins200.Push(200); // Agrega una moneda de 200 al stock
+        paymentAmount -= 200;
+    }
+
+    // Actualiza el stock de monedas de 100
+    while (paymentAmount >= 100)
+    {
+        coins100.Push(100); // Agrega una moneda de 100 al stock
+        paymentAmount -= 100;
+    }
+
+    // Actualiza el stock de monedas de 50
+    while (paymentAmount >= 50)
+    {
+        coins50.Push(50); // Agrega una moneda de 50 al stock
+        paymentAmount -= 50;
+    }
+
+    // Actualiza el stock de monedas de cambio
+    while (changeAmount >= 500 && coins500.Count() > 0)
+    {
+        coins500.Pop(); // Elimina una moneda de 500 del stock
+        changeAmount -= 500;
+    }
+
+    while (changeAmount >= 200 && coins200.Count() > 0)
+    {
+        coins200.Pop(); // Elimina una moneda de 200 del stock
+        changeAmount -= 200;
+    }
+
+    while (changeAmount >= 100 && coins100.Count() > 0)
+    {
+        coins100.Pop(); // Elimina una moneda de 100 del stock
+        changeAmount -= 100;
+    }
+
+    while (changeAmount >= 50 && coins50.Count() > 0)
+    {
+        coins50.Pop(); // Elimina una moneda de 50 del stock
+        changeAmount -= 50;
+    }
+}
 
 
 
