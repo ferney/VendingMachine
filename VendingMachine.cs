@@ -280,7 +280,7 @@ public class VendingMachine
         Console.Write("Nombre del producto: ");
         string productName = Console.ReadLine();
 
-        Console.Write("Precio del producto (en centavos): ");
+        Console.Write("Precio del producto: ");
         if (int.TryParse(Console.ReadLine(), out int productPrice) && productPrice > 0)
         {
             Console.Write("Stock inicial del producto: ");
