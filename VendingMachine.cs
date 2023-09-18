@@ -5,6 +5,7 @@ public class VendingMachine
 {
     
     private List<Product> products;
+    // Puesto para evitar el error de verificación solamente
     Coin coins500 = new Coin(500, 100);
     Coin coins200 = new Coin(200, 200);
     Coin coins100 = new Coin(100, 150);
@@ -67,12 +68,13 @@ public class VendingMachine
     // Comprar un producto
     public void BuyProduct()
     {
+        Console.WriteLine("\n\n");
         Console.WriteLine("Productos disponibles:");
         for (int i = 0; i < products.Count; i++)
         {
             Console.WriteLine($"{i + 1}. {products[i].Name} - Precio: {products[i].Price:C} - Stock: {products[i].Stock}");
         }
-
+        Console.WriteLine("\n\n");
         Console.Write("Selecciona un producto (número): ");
         if (int.TryParse(Console.ReadLine(), out int productIndex) && productIndex >= 1 && productIndex <= products.Count)
         {
@@ -244,13 +246,14 @@ public class VendingMachine
     // Acceder al modo usuario surtidor
     public void AccessSurtidorMode()
     {
+        Console.WriteLine("\n\n");
         Console.WriteLine("Modo Usuario Surtidor:");
         Console.WriteLine("1. Cargar stock productos");
         Console.WriteLine("2. Cargar nuevo producto");
         Console.WriteLine("3. Salir del modo usuario surtidor");
         Console.Write("Selecciona una opción: ");
         string surtidorChoice = Console.ReadLine();
-
+        Console.WriteLine("\n\n");
         switch (surtidorChoice)
         {
             case "1":
@@ -270,6 +273,7 @@ public class VendingMachine
 
     private void NewProduct()
     {
+        Console.WriteLine("\n\n");
         Console.WriteLine("Ingresar un nuevo producto:");
 
         Console.Write("Nombre del producto: ");
@@ -303,6 +307,7 @@ public class VendingMachine
 
     private void LoadProducts()
     {
+        Console.WriteLine("\n\n");
         Console.WriteLine("Cargar productos en la máquina expendedora:");
 
         // Muestra la lista de productos disponibles para cargar
@@ -331,4 +336,8 @@ public class VendingMachine
             Console.WriteLine("Selección de producto no válida.");
         }
     }
+
+
+
+
 }
