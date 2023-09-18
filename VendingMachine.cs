@@ -5,6 +5,7 @@ public class VendingMachine
 {
     
     private List<Product> products;
+    
     // Puesto para evitar el error de verificación solamente
     Coin coins500 = new Coin(500, 100);
     Coin coins200 = new Coin(200, 200);
